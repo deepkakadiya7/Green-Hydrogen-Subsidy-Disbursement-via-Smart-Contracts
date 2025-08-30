@@ -1,0 +1,46 @@
+{
+  "name": "green-hydrogen-subsidy-system",
+  "version": "1.0.0",
+  "description": "Smart contract-based system for automated green hydrogen subsidy disbursement",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "build": "npm run build:contracts && npm run build:backend && npm run build:frontend",
+    "build:contracts": "cd contracts && npx hardhat compile",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "deploy:contracts": "cd contracts && npx hardhat run scripts/deploy.js --network localhost",
+    "deploy:contracts:testnet": "cd contracts && npx hardhat run scripts/deploy.js --network sepolia",
+    "test": "npm run test:contracts && npm run test:backend",
+    "test:contracts": "cd contracts && npx hardhat test",
+    "test:backend": "cd backend && npm test",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint . --ext .js,.ts --fix",
+    "setup": "npm run setup:contracts && npm run setup:backend && npm run setup:frontend",
+    "setup:contracts": "cd contracts && npm install",
+    "setup:backend": "cd backend && npm install",
+    "setup:frontend": "cd frontend && npm install"
+  },
+  "keywords": [
+    "blockchain",
+    "smart-contracts",
+    "green-hydrogen",
+    "subsidy",
+    "automation",
+    "ethereum",
+    "solidity"
+  ],
+  "author": "Green Hydrogen Development Team",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "workspaces": [
+    "contracts",
+    "backend",
+    "frontend"
+  ]
+}
